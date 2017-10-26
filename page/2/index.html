@@ -212,6 +212,129 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-bottom-element" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/10/bottom-element/" class="article-date">
+      <time datetime="2016-11-10T09:17:30.000Z" itemprop="datePublished">2016-11-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/10/bottom-element/">bottom element</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="比较HTML元素固定在页面底部的几种做法"><a href="#比较HTML元素固定在页面底部的几种做法" class="headerlink" title="比较HTML元素固定在页面底部的几种做法"></a>比较HTML元素固定在页面底部的几种做法</h2><h3 id="需求一"><a href="#需求一" class="headerlink" title="需求一"></a>需求一</h3><blockquote>
+<p>例如：移动端商城的购车车中，需要把结算以及金额统计等元素放在页面底部，要求：（1）当页面内容不足一屏的时候，在屏幕可视区的底部出现；（2）当页面内容大于一屏，也就是有垂直滚动条时，在文档的最后显示。</p>
+</blockquote>
+<h4 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h4><ol>
+<li>使用<code>position:absolute;</code>,定位为<code>bottom:0</code>。</li>
+<li>使用<code>position:relative</code>。</li>
+<li>使用<code>flex</code>属性实现。</li>
+</ol>
+<h4 id="利弊解析"><a href="#利弊解析" class="headerlink" title="利弊解析"></a>利弊解析</h4><ol>
+<li><code>position:absolute</code>只能把元素定位到第一屏的底部，但不会随着滚动条的出现跑到文档最底部，满足需求(1)，不满足需求(2)。</li>
+<li><code>position:relative</code>只能满足需求(2)，不能满足需求(1)，可以配合js实现。</li>
+<li><code>flex</code>即可满足需求(1)，也可满足需求(2)，重点阐述。</li>
+</ol>
+<h4 id="实例：使用flex属性实现元素位于页面底部"><a href="#实例：使用flex属性实现元素位于页面底部" class="headerlink" title="实例：使用flex属性实现元素位于页面底部"></a>实例：使用flex属性实现元素位于页面底部</h4><pre><code>//stylesheet
+.wOutSide{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;bottom: 0;left: 0;right: 0px
+}
+.wWrapper {
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    /**父元素display设置为flex**/
+    display:flex;
+    display:-webkit-flex;
+    /**父元素的布局是垂直方向**/
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.wInSide{
+    width:100%;
+    flex:1;
+    -webkit-flex: 1;
+}
+//html结构为：
+&lt;div class=&quot;wOutSide&quot;&gt;
+    &lt;div class=&quot;wWrapper&quot;&gt;
+        &lt;div class=&quot;wInSide&quot;&gt;&lt;/div&gt;
+        &lt;footer&gt;&lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h4 id="效果如下（先为不足一屏；再为超过一屏）"><a href="#效果如下（先为不足一屏；再为超过一屏）" class="headerlink" title="效果如下（先为不足一屏；再为超过一屏）"></a>效果如下（先为不足一屏；再为超过一屏）</h4><p><img src="/img/betweenScreen.png" alt="betweenScreen">    <img src="/img/overScreen.png" alt="overScreen"></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html元素/">html元素</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/固定/">固定</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/底部/">底部</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/11/10/bottom-element/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+        <script>
+            var yiliaConfig = {
+            fancybox: true,
+            mathjax: true,
+            animate: true,
+            isHome: true,
+            isPost: false,
+            isArchive: false,
+            isTag: false,
+            isCategory: false,
+            open_in_new: false
+            }
+        </script>
+        
+
+  
     <article id="post-installation-of-SASS" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
